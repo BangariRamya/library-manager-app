@@ -19,7 +19,7 @@ const handleSubmit = (e) => {
     setFormOpen(false);
 }
 
-//const buttonDisabled = inputs
+
 
 return(
     <div>
@@ -39,7 +39,7 @@ return(
                     <label>Subject :</label>
                     <input type="text" placeholder="Enter subject name" name="subject" value={inputs.subject || ""} onChange={handleInputs}/> <br/> 
 
-                    <input type="submit" disabled={!inputs}/>
+                    <input type="submit" />
                 </form>
                 
             </ModalBody>
