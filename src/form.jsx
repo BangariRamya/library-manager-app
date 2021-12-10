@@ -16,6 +16,7 @@ const handleSubmit = (e) => {
     e.preventDefault();
     setAdd([...add, inputs]);
     //console.log(inputs);
+    setInputs({});
     setFormOpen(false);
 }
 
@@ -23,14 +24,14 @@ const handleSubmit = (e) => {
 
 return(
     <div>
-        <button onClick={() => setFormOpen(true)}>Click to add new book</button>
+        <center><button onClick={() => setFormOpen(true)} className="form-button">Click to add new book</button></center>
 
-        {formOpen && <Modal isOpen>
+        {formOpen && <Modal isOpen modalClassName="modal">
 
-            <ModalHeader>Add New Book</ModalHeader>
+            <ModalHeader className="form-heading">Add New Book</ModalHeader>
 
             <ModalBody>
-
+        
                 <form onSubmit={handleSubmit}>
                     <label>Title :</label>
                     <input type="text" placeholder="Enter title" name="title" value={inputs.title || ""} onChange={handleInputs}/> <br/>
@@ -39,7 +40,10 @@ return(
                     <label>Subject :</label>
                     <input type="text" placeholder="Enter subject name" name="subject" value={inputs.subject || ""} onChange={handleInputs}/> <br/> 
 
-                    <input type="submit" />
+                   {<input type="submit" disabled={!inputs.title || !inputs.author || !inputs.subject} />}
+
+                   {/* {inputs.title&&inputs.author&&inputs.subject && <input type="submit"/>} */}
+
                 </form>
                 
             </ModalBody>
